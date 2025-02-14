@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-  <title>OneUI - Bootstrap 5 Admin Template &amp; UI Framework</title>
+  <title>3TS - Quản lý kho &amp; Hợp đồng | Báo giá</title>
 
   <meta name="description" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave">
   <meta name="author" content="pixelcave">
@@ -85,7 +85,7 @@
 
         <!-- User Info -->
         <div class="ms-2">
-          <a class="text-dark fw-semibold fs-sm" href="javascript:void(0)">John Smith</a>
+          <a class="text-dark fw-semibold fs-sm" href="javascript:void(0)">Admin</a>
         </div>
         <!-- END User Info -->
 
@@ -128,7 +128,7 @@
           <span class="smini-visible">
             <i class="fa fa-circle-notch text-primary"></i>
           </span>
-          <span class="smini-hide fs-5 tracking-wider">One<span class="fw-normal">UI</span></span>
+          <span class="smini-hide fs-5 tracking-wider">Quản lý <span class="fw-normal">Kho</span></span>
         </a>
         <!-- END Logo -->
 
