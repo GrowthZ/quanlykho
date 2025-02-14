@@ -6,6 +6,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/sass/main.scss',
+                'resources/sass/app.scss',
                 'resources/sass/oneui/themes/amethyst.scss',
                 'resources/sass/oneui/themes/city.scss',
                 'resources/sass/oneui/themes/flat.scss',
