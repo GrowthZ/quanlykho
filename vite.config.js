@@ -7,6 +7,7 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/sass/main.scss',
+                'resources/js/oneui/app.js',
                 'resources/js/app.js',
             ],
             refresh: true,
