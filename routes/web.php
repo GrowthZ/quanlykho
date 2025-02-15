@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\UserController;
 
 // Example Routes
 // Route::view('/', 'landing');
@@ -25,3 +26,8 @@ Route::get('/dashboard', function () {
 Route::get('/', function () {
     return view('home');
 })->middleware('auth');
+
+// Route::get('/user', function () {
+//     return view('users.index');
+// })->middleware('auth')->name('user.index');
+Route::resource('users', UserController::class)->middleware('auth');

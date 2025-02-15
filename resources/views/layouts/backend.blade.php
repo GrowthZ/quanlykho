@@ -21,7 +21,7 @@
   @vite(['resources/sass/main.scss', 'resources/js/oneui/app.js'])
 
   <!-- Alternatively, you can also include a specific color theme after the main stylesheet to alter the default color theme of the template -->
-  {{-- @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/js/oneui/app.js']) --}}
+  {{-- @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/js/oneui/app.js','resources/js/oneui/pages/be_comp_dialogs.js']) --}}
   @yield('js')
 </head>
 
@@ -194,11 +194,11 @@
                 <span class="nav-main-link-name">Dashboard</span>
               </a>
             </li>
-            <li class="nav-main-heading">Various</li>
+            <li class="nav-main-heading">Quản lý sản phẩm</li>
             <li class="nav-main-item{{ request()->is('pages/*') ? ' open' : '' }}">
               <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                 <i class="nav-main-link-icon si si-bulb"></i>
-                <span class="nav-main-link-name">Examples</span>
+                <span class="nav-main-link-name">Loại sản phẩm</span>
               </a>
               <ul class="nav-main-submenu">
                 <li class="nav-main-item">
@@ -218,13 +218,19 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-main-heading">More</li>
+            <li class="nav-main-heading">Quản lý người dùng</li>
             <li class="nav-main-item open">
-              <a class="nav-main-link" href="/">
-                <i class="nav-main-link-icon si si-globe"></i>
-                <span class="nav-main-link-name">Landing</span>
+              <a class="nav-main-link" href="{{ route('users.index') }}">
+                <i class="nav-main-link-icon fa fa-users"></i>
+                <span class="nav-main-link-name">Danh sách người dùng</span>
               </a>
             </li>
+            <!-- <li class="nav-main-item open">
+              <a class="nav-main-link" href="/">
+                <i class="nav-main-link-icon fa fa-user-plus"></i>
+                <span class="nav-main-link-name">Thêm mới</span>
+              </a>
+            </li> -->
           </ul>
         </div>
         <!-- END Side Navigation -->
@@ -257,7 +263,7 @@
           <form class="d-none d-md-inline-block" action="/dashboard" method="POST">
             @csrf
             <div class="input-group input-group-sm">
-              <input type="text" class="form-control form-control-alt" placeholder="Search.." id="page-header-search-input2" name="page-header-search-input2">
+              <input type="text" class="form-control form-control-alt" placeholder="Tìm kiếm.." id="page-header-search-input2" name="page-header-search-input2">
               <span class="input-group-text border-0">
                 <i class="fa fa-fw fa-search"></i>
               </span>
@@ -273,35 +279,49 @@
           <div class="dropdown d-inline-block ms-2">
             <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img class="rounded-circle" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="Header Avatar" style="width: 21px;">
-              <span class="d-none d-sm-inline-block ms-2">John</span>
+              <span class="d-none d-sm-inline-block ms-2">{{Auth::user()->name}}</span>
               <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block ms-1 mt-1"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0 border-0" aria-labelledby="page-header-user-dropdown">
               <div class="p-3 text-center bg-body-light border-bottom rounded-top">
                 <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="">
-                <p class="mt-2 mb-0 fw-medium">John Smith</p>
-                <p class="mb-0 text-muted fs-sm fw-medium">Web Developer</p>
+                <p class="mt-2 mb-0 fw-medium">{{Auth::user()->name}}</p>
+                <p class="mb-0 text-muted fs-sm fw-medium">
+                @auth
+                    @if(Auth::user()->role === 'admin')
+                        Admin
+                    @elseif(Auth::user()->role === 'manager')
+                        Quản lý
+                    @else
+                        Người dùng
+                    @endif
+                @endauth
+                </p>
               </div>
               <div class="p-2">
-                <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
+                <!-- <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
                   <span class="fs-sm fw-medium">Inbox</span>
                   <span class="badge rounded-pill bg-primary ms-2">3</span>
+                </a> -->
+                <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
+                  <span class="fs-sm fw-medium">Thông tin người dùng</span>
+                  <!-- <span class="badge rounded-pill bg-primary ms-2">1</span> -->
                 </a>
                 <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                  <span class="fs-sm fw-medium">Profile</span>
-                  <span class="badge rounded-pill bg-primary ms-2">1</span>
+                  <span class="fs-sm fw-medium">Cài đặt</span>
                 </a>
-                <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                  <span class="fs-sm fw-medium">Settings</span>
-                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
               </div>
               <div role="separator" class="dropdown-divider m-0"></div>
               <div class="p-2">
-                <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
+                <!-- <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
                   <span class="fs-sm fw-medium">Lock Account</span>
-                </a>
-                <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                  <span class="fs-sm fw-medium">Log Out</span>
+                </a> -->
+                <a class="dropdown-item d-flex align-items-center justify-content-between" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                  <span class="fs-sm fw-medium">Đăng xuất</span>
                 </a>
               </div>
             </div>
@@ -309,7 +329,7 @@
           <!-- END User Dropdown -->
 
           <!-- Notifications Dropdown -->
-          <div class="dropdown d-inline-block ms-2">
+          <!-- <div class="dropdown d-inline-block ms-2">
             <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-fw fa-bell"></i>
               <span class="text-primary">•</span>
@@ -392,14 +412,14 @@
                 </a>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- END Notifications Dropdown -->
 
           <!-- Toggle Side Overlay -->
           <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-          <button type="button" class="btn btn-sm btn-alt-secondary ms-2" data-toggle="layout" data-action="side_overlay_toggle">
+          <!-- <button type="button" class="btn btn-sm btn-alt-secondary ms-2" data-toggle="layout" data-action="side_overlay_toggle">
             <i class="fa fa-fw fa-list-ul fa-flip-horizontal"></i>
-          </button>
+          </button> -->
           <!-- END Toggle Side Overlay -->
         </div>
         <!-- END Right Section -->
@@ -447,10 +467,10 @@
       <div class="content py-3">
         <div class="row fs-sm">
           <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
-            Crafted with <i class="fa fa-heart text-danger"></i> by <a class="fw-semibold" href="https://pixelcave.com" target="_blank">pixelcave</a>
+            Phát triển cùng <i class="fa fa-heart text-danger"></i> bởi <a class="fw-semibold" href="https://3stech.io.vn" target="_blank">3STech</a>
           </div>
           <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-            <a class="fw-semibold" href="https://pixelcave.com/products/oneui" target="_blank">OneUI</a> &copy; <span data-toggle="year-copy"></span>
+            <a class="fw-semibold" href="https://pixelcave.com/products/oneui" target="_blank">3STech</a> &copy; <span data-toggle="year-copy"></span>
           </div>
         </div>
       </div>

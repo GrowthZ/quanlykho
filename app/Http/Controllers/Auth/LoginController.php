@@ -20,7 +20,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('auth.login'); // Trỏ tới giao diện tùy chỉnh
+        return view('auth.login2'); // Trỏ tới giao diện tùy chỉnh
     }
 
     public function login(Request $request)

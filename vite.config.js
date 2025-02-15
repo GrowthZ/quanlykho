@@ -15,6 +15,7 @@ export default defineConfig({
                 'resources/js/oneui/app.js',
                 'resources/js/app.js',
                 'resources/js/pages/datatables.js',
+                'resources/js/pages/be_comp_dialogs.js',
             ],
             refresh: true,
         }),
