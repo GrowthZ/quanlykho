@@ -9,7 +9,7 @@
     <script src="{{ asset('js/plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
   <!-- Page JS Code -->
-  @vite(['resources/js/pages/op_au_signin.js'])
+  @vite(['resources/js/pages/op_auth_signin.js'])
 @endsection
 @section('content')
 <div id="page-container">
