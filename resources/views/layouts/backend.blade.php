@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-  <title>3TS - Quản lý kho &amp; Hợp đồng | Báo giá</title>
+  <title>Dương Hiếu JSC - Quản lý kho &amp; Hợp đồng | Báo giá</title>
 
   <meta name="description" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave">
   <meta name="author" content="pixelcave">
@@ -478,10 +478,10 @@
       <div class="content py-3">
         <div class="row fs-sm">
           <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
-            Phát triển cùng <i class="fa fa-heart text-danger"></i> bởi <a class="fw-semibold" href="https://3stech.io.vn" target="_blank">3STech</a>
+            Phát triển cùng <i class="fa fa-heart text-danger"></i> bởi <a class="fw-semibold" href="https://3stech.io.vn" target="_blank">Dương Hiếu JSC</a>
           </div>
           <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-            <a class="fw-semibold" href="https://pixelcave.com/products/oneui" target="_blank">3STech</a> &copy; <span data-toggle="year-copy"></span>
+            <a class="fw-semibold" href="https://pixelcave.com/products/oneui" target="_blank">Dương Hiếu JSC</a> &copy; <span data-toggle="year-copy"></span>
           </div>
         </div>
       </div>

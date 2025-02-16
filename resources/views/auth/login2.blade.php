@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="fs-sm text-muted text-center">
-            <strong>3STech</strong> &copy; <span data-toggle="year-copy"></span>
+            <strong>Dương Hiếu JSC</strong> &copy; <span data-toggle="year-copy"></span>
         </div>
         </div>
     </div>
