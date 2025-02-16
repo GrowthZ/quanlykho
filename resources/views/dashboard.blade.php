@@ -10,7 +10,7 @@
             Dashboard
           </h1>
           <h2 class="fs-base lh-base fw-medium text-muted mb-0">
-            Welcome Admin, everything looks great.
+            Xin chào {{Auth::user()->name}}, đây là trang tổng quan.
           </h2>
         </div>
         <nav class="flex-shrink-0 mt-3 mt-sm-0 ms-sm-3" aria-label="breadcrumb">
@@ -30,122 +30,41 @@
 
   <!-- Page Content -->
   <div class="content">
-    <div class="row items-push">
-      <div class="col-md-6 col-xl-4">
-        <div class="block block-rounded h-100 mb-0">
-          <div class="block-header block-header-default">
-            <h3 class="block-title">Welcome</h3>
+    <h2 class="content-heading">Original</h2>
+          <div class="row">
+            <div class="col-md-6 col-xxl-4">
+              <!-- Sign In -->
+              <a class="block block-rounded block-link-shadow" href="#">
+                <div class="block-content text-center">
+                  <div class="py-5">
+                    <div class="mb-3">
+                      <i class="fa fa-user-group fa-2x text-default"></i>
+                    </div>
+                    <p class="fw-medium text-muted">
+                      Quản lý khách hàng
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <!-- END Sign In -->
+            </div>
+            <div class="col-md-6 col-xxl-4">
+              <!-- Sign Up -->
+              <a class="block block-rounded block-link-shadow" href="{{ route('users.index') }}">
+                <div class="block-content text-center">
+                  <div class="py-5">
+                    <div class="mb-3">
+                      <i class="fa fa-user-gear fa-2x text-secondary"></i>
+                    </div>
+                    <p class="fw-medium text-muted">
+                      Quản lý người dùng
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <!-- END Sign Up -->
+            </div>
           </div>
-          <div class="block-content fs-sm text-muted">
-            <p>
-              We’ve put everything together, so you can start working on your Laravel project as soon as possible! OneUI assets are integrated and work seamlessly with Laravel Vite, so you can use the npm scripts as you would in any other Laravel project.
-            </p>
-            <p>
-              Feel free to use any examples you like from the full HTML version to build your own pages.
-            </p>
-            <p>
-              <strong>Wish you all the best and happy coding!</strong>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="block block-rounded h-100 mb-0">
-          <div class="block-header block-header-default">
-            <h3 class="block-title">Block Title</h3>
-          </div>
-          <div class="block-content fs-sm text-muted">
-            <p>
-              ...
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="block block-rounded h-100 mb-0">
-          <div class="block-header block-header-default">
-            <h3 class="block-title">Block Title</h3>
-          </div>
-          <div class="block-content fs-sm text-muted">
-            <p>
-              ...
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="block block-rounded h-100 mb-0">
-          <div class="block-header block-header-default">
-            <h3 class="block-title">Block Title</h3>
-          </div>
-          <div class="block-content fs-sm text-muted">
-            <p>
-              ...
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="block block-rounded h-100 mb-0">
-          <div class="block-header block-header-default">
-            <h3 class="block-title">Block Title</h3>
-          </div>
-          <div class="block-content fs-sm text-muted">
-            <p>
-              ...
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="block block-rounded h-100 mb-0">
-          <div class="block-header block-header-default">
-            <h3 class="block-title">Block Title</h3>
-          </div>
-          <div class="block-content fs-sm text-muted">
-            <p>
-              ...
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="block block-rounded h-100 mb-0">
-          <div class="block-header block-header-default">
-            <h3 class="block-title">Block Title</h3>
-          </div>
-          <div class="block-content fs-sm text-muted">
-            <p>
-              ...
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="block block-rounded h-100 mb-0">
-          <div class="block-header block-header-default">
-            <h3 class="block-title">Block Title</h3>
-          </div>
-          <div class="block-content fs-sm text-muted">
-            <p>
-              ...
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="block block-rounded h-100 mb-0">
-          <div class="block-header block-header-default">
-            <h3 class="block-title">Block Title</h3>
-          </div>
-          <div class="block-content fs-sm text-muted">
-            <p>
-              ...
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <!-- END Page Content -->
 @endsection

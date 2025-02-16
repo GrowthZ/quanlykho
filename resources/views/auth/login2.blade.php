@@ -1,16 +1,5 @@
 @extends('layouts.simple')
-@section('js')
-  <!-- jQuery (required for DataTables plugin) -->
-  <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
 
-  <!-- Page JS Plugins -->
-  <script src="{{ asset('js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-  <script src="{{ asset('js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/jquery-validation/additional-methods.min.js') }}"></script>
-
-  <!-- Page JS Code -->
-  @vite(['resources/js/pages/op_auth_signin.js'])
-@endsection
 @section('content')
 <div id="page-container">
     <!-- Main Container -->
@@ -58,7 +47,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-md-6 col-xl-5">
+                        <div class="col-md-6 col-xl-6">
                         <button type="submit" class="btn w-100 btn-alt-primary">
                             <i class="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i> Đăng nhập
                         </button>
@@ -83,4 +72,16 @@
 </div>
 
 @endsection
+@section('js')
+  <!-- jQuery (required for DataTables plugin) -->
+    <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
 
+    <!-- Page JS Plugins -->
+    <script src="{{ asset('js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/plugins/jquery-validation/additional-methods.min.js') }}"></script> -->
+
+  <!-- Page JS Code -->
+  @vite(['resources/js/pages/op_auth_signin.js'])
+  @vite(['resources/js/oneui/app.js'])
+@endsection
