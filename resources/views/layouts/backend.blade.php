@@ -224,7 +224,7 @@
             </li>
             <li class="nav-main-heading">Quản lý khách hàng</li>
             <li class="nav-main-item open">
-              <a class="nav-main-link" href="#">
+              <a class="nav-main-link" href="{{ route('customers.index') }}">
                 <i class="nav-main-link-icon fa fa-users"></i>
                 <span class="nav-main-link-name">Danh sách khách hàng</span>
               </a>
@@ -478,10 +478,10 @@
       <div class="content py-3">
         <div class="row fs-sm">
           <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
-            Phát triển cùng <i class="fa fa-heart text-danger"></i> bởi <a class="fw-semibold" href="https://3stech.io.vn" target="_blank">Dương Hiếu JSC</a>
+            Phát triển cùng <i class="fa fa-heart text-danger"></i> bởi <a class="fw-semibold" href="https://dhmjsc.vn/" target="_blank">Dương Hiếu JSC</a>
           </div>
           <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-            <a class="fw-semibold" href="https://pixelcave.com/products/oneui" target="_blank">Dương Hiếu JSC</a> &copy; <span data-toggle="year-copy"></span>
+            <a class="fw-semibold" href="https://dhmjsc.vn/" target="_blank">Dương Hiếu JSC</a> &copy; <span data-toggle="year-copy"></span>
           </div>
         </div>
       </div>

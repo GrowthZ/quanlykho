@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\CustomerController;
 // Example Routes
 // Route::view('/', 'landing');
 // Route::match(['get', 'post'], '/dashboard', function(){
@@ -31,3 +31,4 @@ Route::get('/', function () {
 //     return view('users.index');
 // })->middleware('auth')->name('user.index');
 Route::resource('users', UserController::class)->middleware('auth');
+Route::resource('customers', CustomerController::class)->middleware('auth');
