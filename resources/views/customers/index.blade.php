@@ -89,7 +89,7 @@
                       <td>{{ $customer->position }}</td>
                       <td>
                           <!-- <a href="{{ route('customers.edit', $customer) }}" class="btn btn-sm btn-warning">Sửa</a> -->
-                          <a href="javascript:void(0)" class="edit-customer" 
+                          <a href="javascript:void(0)" class="edit-customer"  data-bs-toggle="tooltip" title="Chỉnh sửa thông tin"
                             data-id="{{ $customer->id }}" 
                             data-company_name="{{ $customer->company_name }}" 
                             data-address="{{ $customer->address }}" 
@@ -102,9 +102,12 @@
                           <form action="{{ route('customers.destroy', $customer) }}" method="POST" style="display:inline;">
                               @csrf
                               @method('DELETE')
-                              <button class="btn btn-sm btn-danger" onclick="return confirm('Xác nhận xóa?')">Xóa</button>
+                              <button type="submit" class="btn" onclick="return confirm('Xác nhận xóa?')" data-bs-toggle="tooltip" title="Xóa khách hàng">
+                                <i class="fa fa-fw fa-trash me-1 text-danger"></i>
+                              </button>
                           </form>
                       </td>
+                     
                   </tr>
               @endforeach
           </tbody>
