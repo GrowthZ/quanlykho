@@ -4,28 +4,10 @@
   <!-- Page JS Plugins CSS -->
   <link rel="stylesheet" href="{{ asset('js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
   <link rel="stylesheet" href="{{ asset('js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css') }}">
 @endsection
 
-@section('js')
-  <!-- jQuery (required for DataTables plugin) -->
-  <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
 
-  <!-- Page JS Plugins -->
-  <script src="{{ asset('js/plugins/datatables/dataTables.min.js') }}"></script>
-  <script src="{{ asset('js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-  <script src="{{ asset('js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
-  <script src="{{ asset('js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>
-  <script src="{{ asset('js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
-  <script src="{{ asset('js/plugins/datatables-buttons-jszip/jszip.min.js') }}"></script>
-  <script src="{{ asset('js/plugins/datatables-buttons-pdfmake/pdfmake.min.js') }}"></script>
-  <script src="{{ asset('js/plugins/datatables-buttons-pdfmake/vfs_fonts.js') }}"></script>
-  <script src="{{ asset('js/plugins/datatables-buttons/buttons.print.min.js') }}"></script>
-  <script src="{{ asset('js/plugins/datatables-buttons/buttons.html5.min.js') }}"></script>
-
-  <!-- Page JS Code -->
-  @vite(['resources/js/pages/datatables.js'])
-  @vite(['resources/js/pages/be_comp_dialogs.js'])
-@endsection
 
 @section('content')
   <!-- Hero -->
@@ -66,30 +48,31 @@
           <i class="fa fa-fw fa-plus me-1"></i> Thêm mới
         </button>
       </div>
-      <div class="block-content block-content-full">
+      <div class="block-content block-content-full overflow-x-auto">
         <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/tables_datatables.js -->
-        <table class="table table-bordered table-striped table-vcenter js-dataTable-full fs-sm">
+        <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
           <thead>
               <tr>
                   <th><a href="?sort=company_name">Công ty</a></th>
-                  <th>Địa chỉ</th>
                   <th>Điện thoại</th>
-                  <th><a href="?sort=representative">Người đại diện</a></th>
+                  <th>Người đại diện</th>
                   <th>Chức vụ</th>
+                  <th>Địa chỉ</th>
                   <th>Thao tác</th>
               </tr>
           </thead>
           <tbody>
               @foreach($customers as $customer)
                   <tr>
-                      <td>{{ $customer->company_name }}</td>
-                      <td>{{ $customer->address }}</td>
-                      <td>{{ $customer->phone }}</td>
-                      <td>{{ $customer->representative }}</td>
-                      <td>{{ $customer->position }}</td>
-                      <td>
+                      <td class="fw-semibold fs-sm">{{ $customer->company_name }}</td>
+                      <td class="fs-sm">{{ $customer->phone }}</td>
+                      <td class="fs-sm">{{ $customer->representative }}</td>
+                      <td class="fs-sm">{{ $customer->position }}</td>
+                      <td class="fs-sm">{{ $customer->address }}</td>
+
+                      <td class="fs-sm">
                           <!-- <a href="{{ route('customers.edit', $customer) }}" class="btn btn-sm btn-warning">Sửa</a> -->
-                          <a href="javascript:void(0)" class="edit-customer"  data-bs-toggle="tooltip" title="Chỉnh sửa thông tin"
+                          <button href="javascript:void(0)" class="btn edit-customer"  data-bs-toggle="tooltip" title="Chỉnh sửa thông tin"
                             data-id="{{ $customer->id }}" 
                             data-company_name="{{ $customer->company_name }}" 
                             data-address="{{ $customer->address }}" 
@@ -98,7 +81,7 @@
                             data-representative="{{ $customer->representative }}" 
                             data-position="{{ $customer->position }}">
                             <i class="fa fa-fw fa-edit me-1 text-primary"></i>
-                          </a>
+                          </button>
                           <form action="{{ route('customers.destroy', $customer) }}" method="POST" style="display:inline;">
                               @csrf
                               @method('DELETE')
@@ -220,6 +203,29 @@
       </div> 
   </div>
   <!-- END Page Content -->
+@endsection
+@section('js')
+  <!-- jQuery (required for DataTables plugin) -->
+  <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
+
+  <!-- Page JS Plugins -->
+  <script src="{{ asset('js/plugins/datatables/dataTables.min.js') }}"></script>
+  <script src="{{ asset('js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+  <script src="{{ asset('js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+  <script src="{{ asset('js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>
+  <script src="{{ asset('js/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+  <script src="{{ asset('js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
+  <script src="{{ asset('js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
+  <script src="{{ asset('js/plugins/datatables-buttons-jszip/jszip.min.js') }}"></script>
+  <script src="{{ asset('js/plugins/datatables-buttons-pdfmake/pdfmake.min.js') }}"></script>
+  <script src="{{ asset('js/plugins/datatables-buttons-pdfmake/vfs_fonts.js') }}"></script>
+  <script src="{{ asset('js/plugins/datatables-buttons/buttons.print.min.js') }}"></script>
+  <script src="{{ asset('js/plugins/datatables-buttons/buttons.html5.min.js') }}"></script>
+
+  <!-- Page JS Code -->
+  @vite(['resources/js/pages/datatables.js'])
+  @vite(['resources/js/pages/be_tables_datatables.min.js'])
+  @vite(['resources/js/pages/be_comp_dialogs.js'])
 @endsection
 <script>
 document.addEventListener("DOMContentLoaded", function () {
