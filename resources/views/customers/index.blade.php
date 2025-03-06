@@ -224,7 +224,7 @@
 
   <!-- Page JS Code -->
   @vite(['resources/js/pages/datatables.js'])
-  @vite(['resources/js/pages/be_tables_datatables.min.js'])
+  @vite(['resources/js/pages/be_tables_datatables.js'])
   @vite(['resources/js/pages/be_comp_dialogs.js'])
 @endsection
 <script>
