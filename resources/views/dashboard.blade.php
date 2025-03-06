@@ -34,7 +34,7 @@
           <div class="row">
             <div class="col-md-6 col-xxl-4">
               <!-- Sign In -->
-              <a class="block block-rounded block-link-shadow" href="#">
+              <a class="block block-rounded block-link-shadow" href="{{ route('customers.index') }}">
                 <div class="block-content text-center">
                   <div class="py-5">
                     <div class="mb-3">
