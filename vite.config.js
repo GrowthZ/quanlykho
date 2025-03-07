@@ -17,6 +17,7 @@ export default defineConfig({
                 'resources/js/pages/datatables.js',
                 'resources/js/pages/be_comp_dialogs.js',
                 'resources/js/pages/op_auth_signin.js',
+                'resources/js/pages/be_tables_datatables.js',
             ],
             refresh: true,
         }),
