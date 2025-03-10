@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WarehouseController;
+use App\Http\Controllers\ExcelImportController;
+
 // Example Routes
 // Route::view('/', 'landing');
 // Route::match(['get', 'post'], '/dashboard', function(){
@@ -26,9 +30,18 @@ Route::get('/dashboard', function () {
 Route::get('/', function () {
     return view('dashboard');
 })->middleware('auth');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('users', UserController::class);
+    Route::resource('customers', CustomerController::class);
+    Route::resource('products', ProductController::class);
+    Route::resource('warehouses', WarehouseController::class);
+    Route::post('/import-excel', [ExcelImportController::class, 'import'])->name('import.excel');
+
+});
 
 // Route::get('/user', function () {
 //     return view('users.index');
 // })->middleware('auth')->name('user.index');
-Route::resource('users', UserController::class)->middleware('auth');
-Route::resource('customers', CustomerController::class)->middleware('auth');
+
+// Route::resource('users', UserController::class)->middleware('auth');
+// Route::resource('customers', CustomerController::class)->middleware('auth');

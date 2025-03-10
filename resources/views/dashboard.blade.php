@@ -64,6 +64,38 @@
               </a>
               <!-- END Sign Up -->
             </div>
+            <div class="col-md-6 col-xxl-4">
+              <!-- Sign Up -->
+              <a class="block block-rounded block-link-shadow" href="{{ route('products.index') }}">
+                <div class="block-content text-center">
+                  <div class="py-5">
+                    <div class="mb-3">
+                      <i class="fa fa-boxes-packing fa-2x text-success"></i>
+                    </div>
+                    <p class="fw-medium text-muted">
+                      Quản lý sản phẩm
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <!-- END Sign Up -->
+            </div>
+            <div class="col-md-6 col-xxl-4">
+              <!-- Sign Up -->
+              <a class="block block-rounded block-link-shadow" href="{{ route('users.index') }}">
+                <div class="block-content text-center">
+                  <div class="py-5">
+                    <div class="mb-3">
+                      <i class="fa fa-box fa-2x text-info"></i>
+                    </div>
+                    <p class="fw-medium text-muted">
+                      Quản lý kho
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <!-- END Sign Up -->
+            </div>
           </div>
   </div>
   <!-- END Page Content -->
