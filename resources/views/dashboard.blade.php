@@ -82,7 +82,7 @@
             </div>
             <div class="col-md-6 col-xxl-4">
               <!-- Sign Up -->
-              <a class="block block-rounded block-link-shadow" href="{{ route('users.index') }}">
+              <a class="block block-rounded block-link-shadow" href="{{ route('warehouses.index') }}">
                 <div class="block-content text-center">
                   <div class="py-5">
                     <div class="mb-3">
