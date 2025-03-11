@@ -33,9 +33,13 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('customers', CustomerController::class);
-    Route::resource('products', ProductController::class);
     Route::resource('warehouses', WarehouseController::class);
-    Route::post('/import-excel', [ExcelImportController::class, 'import'])->name('import.excel');
+    Route::prefix('products')->group(function () {
+        Route::get('/import', [ExcelImportController::class, 'showImportForm'])->name('products.import.form');
+        Route::post('/import/preview', [ExcelImportController::class, 'previewImport'])->name('products.import.preview');
+        Route::post('/import/process', [ExcelImportController::class, 'processImport'])->name('products.import.process');
+    });
+    Route::resource('products', ProductController::class);
 
 });
 

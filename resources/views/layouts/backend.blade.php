@@ -201,6 +201,12 @@
                 <span class="nav-main-link-name">Danh sách sản phẩm</span>
               </a>
             </li>
+            <li class="nav-main-item open">
+              <a class="nav-main-link" href="{{ route('products.import.form') }}">
+                <i class="nav-main-link-icon fa fa-file-import"></i>
+                <span class="nav-main-link-name">Import sản phẩm</span>
+              </a>
+            </li>
             <li class="nav-main-heading">Quản lý kho</li>
             <li class="nav-main-item open">
               <a class="nav-main-link" href="{{ route('warehouses.index') }}">
