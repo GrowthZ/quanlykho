@@ -32,7 +32,15 @@
                 @csrf
                 <!-- <div class="mb-4"> -->
                     <!-- <label class="form-label" for="example-file-input">Chọn file import</label> -->
-                    <input class="form-control" type="file" id="excel_file" name="excel_file" accept=".xls,.xlsx,.csv">
+                    <!-- <input class="form-control" type="file" id="excel_file" name="excel_file" accept=".xls,.xlsx,.csv"> -->
+                    <div class="mb-4">
+                        <label for="excel_file" class="form-label  d-block">Chọn file (Định dạng: XLSX, CSV)</label>
+                        <input class="form-control d-none" type="file" id="excel_file" name="excel_file" accept=".xls,.xlsx,.csv">
+                        <button type="button" class="btn btn-primary" onclick="document.getElementById('excel_file').click();">
+                            <i class="fa fa-upload"></i> Chọn file
+                        </button>
+                        <span id="file-name" class="ms-2 text-muted">Chưa có file nào được chọn</span>
+                    </div>
                 <!-- </div> -->
             </form>
             <hr>
@@ -67,6 +75,11 @@
 $(document).ready(function() {
     let originalData = [];
     let allowedColumns = [];
+
+    document.getElementById("excel_file").addEventListener("change", function () {
+        let fileName = this.files.length > 0 ? this.files[0].name : "Chưa có file nào được chọn";
+        document.getElementById("file-name").textContent = fileName;
+    });
 
     $("#excel_file").change(function() {
         var formData = new FormData();
