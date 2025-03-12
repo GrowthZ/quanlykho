@@ -116,7 +116,7 @@
                   </div>
 
                   <div class="form-group">
-                      <button type="submit" class="btn btn-primary">Lưu</button>
+                      <button type="submit" class="btn btn-primary">Thêm mới</button>
                       <a href="{{ route('products.index') }}" class="btn btn-secondary">Quay lại</a>
                   </div>
               </form>

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller {
     // Hiển thị danh sách sản phẩm
     public function index() {
-        $products = Product::all();
+        $products = Product::orderBy('created_at', 'desc')->orderBy('id', 'desc')->get();
         return view('products.index', compact('products'));
     }
 
@@ -43,17 +43,19 @@ class ProductController extends Controller {
 
     // Hiển thị form sửa sản phẩm
     public function edit(Product $product) {
-        return view('products.edit', compact('product'));
+        $categories = Category::all();
+        return view('products.edit', compact('product', 'categories'));
     }
 
     // Cập nhật sản phẩm
     public function update(Request $request, Product $product) {
         $request->validate([
-            'code' => 'required|unique:products,code,' . $product->id,
-            'description' => 'required',
-            'quantity' => 'required|integer|min:0',
-            'purchase_price' => 'required|numeric|min:0',
-            'weight' => 'nullable|numeric|min:0',
+            'code' => 'required|unique:products',
+            'quantity' => 'nullable|integer|min:0',
+            'purchase_price' => 'nullable|numeric|min:0',
+            'price' => 'nullable|numeric|min:0',
+            'weight' => 'nullable|min:0',
+            'category_id' => 'nullable|exists:categories,id',
             'origin' => 'nullable|string'
         ]);
 

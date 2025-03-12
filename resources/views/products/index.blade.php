@@ -95,16 +95,9 @@
 
                       <td class="fs-sm">
                           <!-- <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-warning">Sửa</a> -->
-                          <button href="javascript:void(0)" class="btn edit-product"  data-bs-toggle="tooltip" title="Chỉnh sửa thông tin"
-                            data-id="{{ $product->id }}" 
-                            data-company_name="{{ $product->company_name }}" 
-                            data-address="{{ $product->address }}" 
-                            data-phone="{{ $product->phone }}" 
-                            data-tax_code="{{ $product->tax_code }}" 
-                            data-representative="{{ $product->representative }}" 
-                            data-position="{{ $product->position }}">
+                          <a href="{{ route('products.edit', $product->id) }}" class="btn edit-product"  data-bs-toggle="tooltip" title="Chỉnh sửa thông tin">
                             <i class="fa fa-fw fa-edit me-1 text-primary"></i>
-                          </button>
+                          </a>
                           <form action="{{ route('products.destroy', $product) }}" method="POST" style="display:inline;">
                               @csrf
                               @method('DELETE')
