@@ -100,9 +100,9 @@
         <h3 class="block-title">
           Danh sách
         </h3>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-product">
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-product">
           <i class="fa fa-fw fa-plus me-1"></i> Thêm mới
-        </button>
+        </button> -->
       </div>
       <div class="block-content block-content-full overflow-x-auto">
         <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/tables_datatables.js -->

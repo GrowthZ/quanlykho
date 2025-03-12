@@ -36,7 +36,11 @@
     </div>
   </div>
   <!-- END Hero -->
-
+  @if(session('success'))
+    <script>
+        toastr.success("{{ session('success') }}");
+    </script>
+  @endif
   <!-- Page Content -->
   <div class="content">
     <div class="block block-rounded">
@@ -44,9 +48,9 @@
         <h3 class="block-title">
           Danh sách
         </h3>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-product">
+        <a type="button" class="btn btn-primary" href="{{ route('products.create') }}">
           <i class="fa fa-fw fa-plus me-1"></i> Thêm mới
-        </button>
+        </a>
         
       </div>
       <div class="block-content block-content-full overflow-x-auto">
@@ -119,6 +123,7 @@
     <!-- END Dynamic Table Full -->
   </div>
   <!-- END Page Content -->
+   
 @endsection
 @section('js')
   <!-- jQuery (required for DataTables plugin) -->

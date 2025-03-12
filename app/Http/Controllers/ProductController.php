@@ -24,10 +24,10 @@ class ProductController extends Controller {
     public function store(Request $request) {
         $request->validate([
             'code' => 'required|unique:products',
-            'description' => 'required',
-            'quantity' => 'required|integer|min:0',
-            'purchase_price' => 'required|numeric|min:0',
-            'weight' => 'nullable|numeric|min:0',
+            'quantity' => 'nullable|integer|min:0',
+            'purchase_price' => 'nullable|numeric|min:0',
+            'price' => 'nullable|numeric|min:0',
+            'weight' => 'nullable|min:0',
             'category_id' => 'nullable|exists:categories,id',
             'origin' => 'nullable|string'
         ]);
