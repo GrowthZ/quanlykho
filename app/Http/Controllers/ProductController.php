@@ -50,7 +50,6 @@ class ProductController extends Controller {
     // Cập nhật sản phẩm
     public function update(Request $request, Product $product) {
         $request->validate([
-            'code' => 'required|unique:products',
             'quantity' => 'nullable|integer|min:0',
             'purchase_price' => 'nullable|numeric|min:0',
             'price' => 'nullable|numeric|min:0',

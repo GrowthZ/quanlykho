@@ -41,7 +41,7 @@
                 <!-- Mã sản phẩm -->
                 <div class="mb-4">
                     <label class="form-label" for="code">Mã sản phẩm <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control @error('code') is-invalid @enderror" id="code" name="code" value="{{ old('code', $product->code) }}" readonly>
+                    <input type="text" class="form-control @error('code') is-invalid @enderror" id="code" name="code" value="{{ old('code', $product->code) }}" disabled>
                     @error('code')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -85,7 +85,7 @@
 
                 <!-- Trọng lượng -->
                 <div class="mb-4">
-                    <label class="form-label" for="weight">Trọng lượng</label>
+                    <label class="form-label" for="weight">Trọng lượng (kg)</label>
                     <input type="text" class="form-control @error('weight') is-invalid @enderror" id="weight" name="weight" value="{{ old('weight', $product->weight) }}">
                     @error('weight')
                         <div class="invalid-feedback">{{ $message }}</div>

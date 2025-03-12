@@ -99,6 +99,7 @@ class pageTablesDatatables {
       pageLength: 10,
       autoWidth: true,
       responsive: true,
+      order: []
     });
   }
 

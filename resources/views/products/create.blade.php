@@ -77,7 +77,7 @@
                   </div>
 
                   <div class="mb-4">
-                      <label class="form-label" for="weight">Trọng lượng</label>
+                      <label class="form-label" for="weight">Trọng lượng (kg)</label>
                       <input type="text" class="form-control @error('weight') is-invalid @enderror" id="weight" name="weight" value="{{ old('weight') }}">
                       @error('weight')
                           <div class="invalid-feedback">{{ $message }}</div>
