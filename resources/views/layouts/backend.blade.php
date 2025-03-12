@@ -24,6 +24,21 @@
   <!-- Alternatively, you can also include a specific color theme after the main stylesheet to alter the default color theme of the template -->
   {{-- @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/js/oneui/app.js','resources/js/oneui/pages/be_comp_dialogs.js']) --}}
   @yield('js')
+  <style>
+    /* Áp dụng cho tất cả các ô trong bảng */
+    table.table tbody td {
+        white-space: normal !important;
+        word-wrap: break-word;
+        max-width: 300px; /* Đặt giới hạn chiều rộng */
+    }
+
+    /* Áp dụng riêng cho cột 'description' */
+    td.description-column {
+        white-space: normal !important;
+        word-wrap: break-word;
+        max-width: 300px; /* Giới hạn chiều rộng, có thể thay đổi */
+    }
+  </style>
 </head>
 
 <body>
@@ -150,6 +165,19 @@
                 <span class="nav-main-link-name">Dashboard</span>
               </a>
             </li>
+            <li class="nav-main-heading">Quản lý báo giá</li>
+            <li class="nav-main-item open">
+              <a class="nav-main-link" href="{{ route('products.showCartPage') }}">
+                <i class="nav-main-link-icon fa fa-cart-shopping"></i>
+                <span class="nav-main-link-name">Tạo báo giá</span>
+              </a>
+            </li>
+            <!-- <li class="nav-main-item open">
+              <a class="nav-main-link" href="{{ route('products.import.form') }}">
+                <i class="nav-main-link-icon fa fa-file-import"></i>
+                <span class="nav-main-link-name">Danh sách báo giá</span>
+              </a>
+            </li> -->
             <li class="nav-main-heading">Quản lý sản phẩm</li>
             <li class="nav-main-item open">
               <a class="nav-main-link" href="{{ route('products.index') }}">
@@ -438,7 +466,6 @@
   </div>
   <!-- END Page Container -->
   <script src="{{ asset('js/plugins/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
-  <script>One.helpersOnLoad(['jq-notify']);</script>
   <!-- Thêm vào trong <head> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

@@ -38,6 +38,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/import', [ExcelImportController::class, 'showImportForm'])->name('products.import.form');
         Route::post('/import/preview', [ExcelImportController::class, 'previewImport'])->name('products.import.preview');
         Route::post('/import/process', [ExcelImportController::class, 'processImport'])->name('products.import.process');
+        Route::get('/cart', [ProductController::class, 'showCartPage'])->name('products.showCartPage');
+        Route::post('/search', [ProductController::class, 'search'])->name('products.search');
+
     });
     Route::resource('products', ProductController::class);
 

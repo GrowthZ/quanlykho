@@ -67,4 +67,19 @@ class ProductController extends Controller {
         $product->delete();
         return redirect()->route('products.index')->with('success', 'Sản phẩm đã được xóa!');
     }
+
+    public function showCartPage()
+    {
+        $products = Product::orderBy('created_at', 'desc')->orderBy('id', 'desc')->get();
+        return view('products.search', compact('products'));
+    }
+
+    public function search(Request $request)
+    {
+        $codes = $request->input('codes');
+        $codeList = preg_split('/[\s,]+/', trim($codes[0]));
+        $products = Product::whereIn('code', $codeList)->get();
+
+        return response()->json($products);
+    }
 }
