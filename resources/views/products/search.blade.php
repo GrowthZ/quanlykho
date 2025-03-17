@@ -195,12 +195,19 @@
                 $.each(data, function (index, product) {
                     tableBody.append(`
                         <tr>
-                            <td class="fs-sm">${index + 1}</td>
                             <td class="fs-sm">${product.code}</td>
                             <td class="fs-sm">${product.description}</td>
                             <td class="fs-sm">${product.quantity}</td>
                             <td class="fs-sm">${new Intl.NumberFormat('en-US').format(product.purchase_price)} đ</td>
                             <td class="fs-sm">${new Intl.NumberFormat('en-US').format(product.price)} đ</td>
+                            <td class="fs-sm">
+                                <button class="btn btn-sm btn-primary add-to-cart" 
+                                    data-code="${product.code}" 
+                                    data-description="${product.description}"
+                                    data-price="${product.price}">
+                                    <i class="fa fa-cart-plus"></i> Thêm báo giá 
+                                </button>
+                            </td>
                         </tr>
                     `);
                 });
