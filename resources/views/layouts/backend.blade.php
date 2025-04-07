@@ -191,13 +191,13 @@
                 <span class="nav-main-link-name">Import sản phẩm</span>
               </a>
             </li>
-            <!-- <li class="nav-main-heading">Quản lý kho</li>
+            <li class="nav-main-heading">Quản lý kho</li>
             <li class="nav-main-item open">
               <a class="nav-main-link" href="{{ route('warehouses.index') }}">
                 <i class="nav-main-link-icon fa fa-box"></i>
                 <span class="nav-main-link-name">Danh sách kho</span>
               </a>
-            </li> -->
+            </li>
             <li class="nav-main-heading">Quản lý khách hàng</li>
             <li class="nav-main-item open">
               <a class="nav-main-link" href="{{ route('customers.index') }}">
